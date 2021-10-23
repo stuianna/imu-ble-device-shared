@@ -4,6 +4,23 @@
 #include <cstddef>
 #include <cstdint>
 
+/**
+ * @brief UUID for the accelerometer service.
+ */
+#define UUID_SERVICE_ACC "12345678-1234-5678-1234-56789abcdefA"
+/**
+ * @brief UUID for the gyroscope service.
+ */
+#define UUID_SERVICE_GYR "12345678-1234-5678-1234-56789abcdee0"
+/**
+ * @brief UUID for the magnometer service.
+ */
+#define UUID_SERVICE_MAG "12345678-1234-5678-1234-56789abcded0"
+/**
+ * @brief UUID accelerometer, gyroscope and magnometer main notification characteristics.
+ */
+#define UUID_CHARACTERISTIC "12345678-1234-5678-1234-56789abcdef1"
+
 namespace UUID {
   /**
    * @brief Convert a two character hex string into a byte at compiile time.
