@@ -1,8 +1,8 @@
 #ifndef __CONTAINERS_TRIAXAL_READING_HPP
 #define __CONTAINERS_TRIAXAL_READING_HPP
 
-#include <cstdint>
 #include <cstddef>
+#include <cstdint>
 
 struct TriaxalReading {
   TriaxalReading(const float x, const float y, const float z) : _x(x), _y(y), _z(z) {}
