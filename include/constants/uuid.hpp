@@ -45,6 +45,46 @@ namespace UUID {
     return (u32 << 16) | l16;
   }
 
+  /**
+   * @brief Get bytes 0-3 of supplied UUID.
+   *
+   * @param uuid Must be supplied in "4cdae0c9-a2a7-464c-ba2b-462d4af1db09" format.
+   * @return constexpr uint32_t Bytes 0-3;
+   */
+  constexpr uint32_t toBytes_1(const char* uuid) { return sHexToU32(uuid); }
+
+  /**
+   * @brief Get bytes 4-5 of supplied UUID.
+   *
+   * @param uuid Must be supplied in "4cdae0c9-a2a7-464c-ba2b-462d4af1db09" format.
+   * @return constexpr uint32_t Bytes 4-5;
+   */
+  constexpr uint32_t toBytes_2(const char* uuid) { return sHexToU16(&uuid[9]); }
+
+  /**
+   * @brief Get bytes 6-7 of supplied UUID.
+   *
+   * @param uuid Must be supplied in "4cdae0c9-a2a7-464c-ba2b-462d4af1db09" format.
+   * @return constexpr uint32_t Bytes 6-7;
+   */
+  constexpr uint32_t toBytes_3(const char* uuid) { return sHexToU16(&uuid[14]); }
+
+  /**
+   * @brief Get bytes 8-9 of supplied UUID.
+   *
+   * @param uuid Must be supplied in "4cdae0c9-a2a7-464c-ba2b-462d4af1db09" format.
+   * @return constexpr uint32_t Bytes 8-9;
+   */
+  constexpr uint32_t toBytes_4(const char* uuid) { return sHexToU16(&uuid[19]); }
+
+  /**
+   * @brief Get bytes 10-15 of supplied UUID.
+   *
+   * @param uuid Must be supplied in "4cdae0c9-a2a7-464c-ba2b-462d4af1db09" format.
+   * @return constexpr uint32_t Bytes 10-15;
+   */
+  constexpr uint64_t toBytes_5(const char* uuid) { return sHexToU48(&uuid[24]); }
+
 };  // namespace UUID
 
 #endif  // __CONSTANTS_UUID_HPP
