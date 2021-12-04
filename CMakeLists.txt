@@ -19,6 +19,11 @@ add_executable(test_rotation_euler
 )
 add_test(rotation_euler test_rotation_euler)
 
+add_executable(test_angle  
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_angle.cpp
+)
+add_test(angle test_angle)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
