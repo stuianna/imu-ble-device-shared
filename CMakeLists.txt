@@ -13,6 +13,12 @@ add_test(triaxal_reading test_triaxal_reading)
 add_executable(test_uuid  ${CMAKE_CURRENT_SOURCE_DIR}/tests/constants/test_uuid.cpp)
 add_test(uuid test_uuid)
 
+add_executable(test_rotation_euler  
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_rotation_euler.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/containers/rotation_euler.cpp
+)
+add_test(rotation_euler test_rotation_euler)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
