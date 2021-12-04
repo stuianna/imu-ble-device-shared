@@ -5,51 +5,25 @@
 
 TEST_CASE("Creating from angles") {
   SUBCASE("Angles within bounds") {
-    auto reading = RotationEuler(1, 2, 3);
+    auto reading = RotationEuler(Angle::degrees(1), Angle::degrees(2), Angle::degrees(3));
     SUBCASE("Getting x,y,z angles.") {
-      CHECK_EQ(1, reading.x());
-      CHECK_EQ(2, reading.y());
-      CHECK_EQ(3, reading.z());
+      CHECK_EQ(1.f, reading.x().degrees());
+      CHECK_EQ(2.f, reading.y().degrees());
+      CHECK_EQ(3.f, reading.z().degrees());
     }
 
     SUBCASE("Getting yaw, pitch, roll") {
-      CHECK_EQ(1, reading.roll());
-      CHECK_EQ(2, reading.pitch());
-      CHECK_EQ(3, reading.yaw());
+      CHECK_EQ(1.f, reading.roll().degrees());
+      CHECK_EQ(2.f, reading.pitch().degrees());
+      CHECK_EQ(3.f, reading.yaw().degrees());
     }
-  }
 
-  SUBCASE("Angles out of bounds") {
-    SUBCASE("X Axis") {
-      SUBCASE("Below -180 degrees") {
-        auto reading = RotationEuler(-180.1f, 2, 3);
-        CHECK_EQ(179.9f, reading.x());
-      }
-
-      SUBCASE("Above 180 degrees") {
-        auto reading = RotationEuler(180.1f, 2, 3);
-        CHECK_EQ(-179.9f, reading.x());
-      }
-
-      SUBCASE("Multiple rotations above (even)") {
-        auto reading = RotationEuler(520.f, 2, 3);
-        CHECK_EQ(160.f, reading.x());
-      }
-
-      SUBCASE("Multiple rotations above (odd)") {
-        auto reading = RotationEuler(550.f, 2, 3);
-        CHECK_EQ(-170.f, reading.x());
-      }
-
-      SUBCASE("Multiple rotations below (even)") {
-        auto reading = RotationEuler(-510.f, 2, 3);
-        CHECK_EQ(-150.f, reading.x());
-      }
-
-      SUBCASE("Multiple rotations below (odd)") {
-        auto reading = RotationEuler(-560.f, 2, 3);
-        CHECK_EQ(160.f, reading.x());
-      }
+    SUBCASE("Fetching byte array") {
+      CHECK_EQ(reading.length(), 12);
+      uint8_t* bytes = reading.bytes();
+      CHECK_EQ(*reinterpret_cast<float*>(&bytes[0]), 1.f);
+      CHECK_EQ(*reinterpret_cast<float*>(&bytes[4]), 2.f);
+      CHECK_EQ(*reinterpret_cast<float*>(&bytes[8]), 3.f);
     }
   }
 }
