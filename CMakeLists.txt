@@ -24,6 +24,12 @@ add_executable(test_angle
 )
 add_test(angle test_angle)
 
+add_executable(test_tilt_estimator  
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/algorithms/test_tilt_estimator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/tilt_estimator.cpp
+)
+add_test(tilt_estimator test_tilt_estimator)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)

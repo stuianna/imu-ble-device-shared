@@ -15,19 +15,36 @@ struct RotationEuler {
    * @param y The rotation in degrees around the y axis (pitch)
    * @param z The rotatio in degreesn around the z axis (yaw)
    */
-  RotationEuler(const Angle x, const Angle y, const Angle z) : angles{x, y, z} {}
+  RotationEuler(const Angle& x, const Angle& y, const Angle& z) : angles{x, y, z} {}
+
+  RotationEuler() : angles{Angle::degrees(0), Angle::degrees(0), Angle::degrees(0)} {}
 
  private:
   union {
     struct {
-      const Angle _x;
-      const Angle _y;
-      const Angle _z;
+      Angle _x;
+      Angle _y;
+      Angle _z;
     } angles;
     uint8_t _bytes[12];
   };
 
  public:
+  /**
+   * @brief Set the x (roll) angle.
+   * @param x Angle.
+   */
+  void x(Angle x) { angles._x = x; };
+  /**
+   * @brief Set the y (pitch) angle.
+   * @param x Angle.
+   */
+  void y(Angle y) { angles._y = y; };
+  /**
+   * @brief Set the z (yaw) angle.
+   * @param x Angle.
+   */
+  void z(Angle z) { angles._z = z; };
   /**
    * @brief Get the rotation around the x axis (roll)
    * @return constexpr Angle The rotation.

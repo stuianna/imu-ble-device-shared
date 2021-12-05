@@ -18,9 +18,9 @@ struct TriaxalReading {
   };
 
  public:
-  constexpr float x() { return _x; };
-  constexpr float y() { return _y; };
-  constexpr float z() { return _z; };
+  constexpr float x() const { return _x; };
+  constexpr float y() const { return _y; };
+  constexpr float z() const { return _z; };
   constexpr uint8_t* bytes() { return _bytes; }
   constexpr size_t length() { return 12; }
 };
