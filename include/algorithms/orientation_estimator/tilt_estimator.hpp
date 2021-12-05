@@ -12,7 +12,7 @@ class TiltEstimator : public OrientationEstimator {
   void update(const TriaxalReading& acc, const TriaxalReading& gyr, const TriaxalReading& mag) override;
 
  private:
-  RotationEuler _current;
+  RotationEuler _currentOrientation;
 };
 
 #endif  // __ALGORITHMS_TILT_ESTIMAORN_HPP

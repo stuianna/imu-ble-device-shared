@@ -1,0 +1,29 @@
+{
+    "name": "imu-ble-device-shared",
+    "version": "0.0.1",
+    "description": "Shared data and algorithms for imu-ble device",
+    "keywords": "ble",
+    "repository":
+    {
+      "type": "git",
+      "url": "git@github.com:stuianna/imu-ble-device-firmware.git"
+    },
+    "authors":
+    [
+      {
+        "name": "stuianna",
+        "email": "stuian@protonmail.com"
+      }
+    ],
+    "license": "MIT",
+    "frameworks": "*",
+    "platforms": "*",
+    "build": {
+        "includeDir": "include/",
+        "srcDir": "src/",
+        "srcFilter": [
+          "+<algorithms/>"
+
+        ]
+      }
+  }
