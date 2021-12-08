@@ -17,6 +17,10 @@
  */
 #define UUID_SERVICE_MAG "12345678-1234-5678-1234-56789abcded0"
 /**
+ * @brief UUID for the euler orientation service.
+ */
+#define UUID_SERVICE_ORIENTATION "12345678-1234-5678-1234-56789abcdef0"
+/**
  * @brief UUID accelerometer, gyroscope and magnometer main notification characteristics.
  */
 #define UUID_CHARACTERISTIC "12345678-1234-5678-1234-56789abcdef1"
