@@ -16,7 +16,15 @@ struct RotationEuler {
    * @param z The rotatio in degreesn around the z axis (yaw)
    */
   RotationEuler(const Angle& x, const Angle& y, const Angle& z) : angles{x, y, z} {}
-
+  RotationEuler& operator=(RotationEuler&& rhs) {
+    if(this != &rhs) {
+      this->angles._x = rhs.angles._x;
+      this->angles._y = rhs.angles._y;
+      this->angles._z = rhs.angles._z;
+    }
+    return *this;
+  }
+  constexpr RotationEuler(const RotationEuler& rhs) : angles(rhs.angles) {}
   RotationEuler() : angles{Angle::degrees(0), Angle::degrees(0), Angle::degrees(0)} {}
 
  private:
@@ -49,17 +57,17 @@ struct RotationEuler {
    * @brief Get the rotation around the x axis (roll)
    * @return constexpr Angle The rotation.
    */
-  Angle x() { return angles._x; };
+  Angle x() const { return angles._x; };
   /**
    * @brief Get the rotation around the y axis (pitch)
    * @return constexpr Angle The rotation.
    */
-  Angle y() { return angles._y; };
+  Angle y() const { return angles._y; };
   /**
    * @brief Get the rotation around the z axis (yaw)
    * @return constexpr Angle The rotation.
    */
-  Angle z() { return angles._z; };
+  Angle z() const { return angles._z; };
   /**
    * @brief Get the roll in degrees.
    * @return constexpr Angle The rotation.

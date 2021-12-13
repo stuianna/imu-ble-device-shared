@@ -27,3 +27,13 @@ TEST_CASE("Creating from angles") {
     }
   }
 }
+
+TEST_CASE("Construtors") {
+  SUBCASE("Move") {
+    auto reading = RotationEuler(Angle::degrees(1), Angle::degrees(2), Angle::degrees(3));
+    auto reading2 = reading;
+    CHECK_EQ(1.f, reading2.x().degrees());
+    CHECK_EQ(2.f, reading2.y().degrees());
+    CHECK_EQ(3.f, reading2.z().degrees());
+  }
+}
