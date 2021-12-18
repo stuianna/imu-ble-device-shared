@@ -6,13 +6,20 @@
 
 struct TriaxalReading {
   TriaxalReading(const float x, const float y, const float z) : _x(x), _y(y), _z(z) {}
+  TriaxalReading() : _x(0), _y(0), _z(0) {}
+  TriaxalReading& operator=(const TriaxalReading& rhs) {
+    _x = rhs._x;
+    _y = rhs._y;
+    _z = rhs._z;
+    return *this;
+  }
 
  private:
   union {
     struct {
-      const float _x;
-      const float _y;
-      const float _z;
+      float _x;
+      float _y;
+      float _z;
     };
     uint8_t _bytes[12];
   };
