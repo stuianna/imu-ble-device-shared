@@ -19,6 +19,11 @@ add_executable(test_rotation_euler
 )
 add_test(rotation_euler test_rotation_euler)
 
+add_executable(test_rotation_quarternion  
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_rotation_quarternion.cpp
+)
+add_test(rotation_quarternion test_rotation_quarternion)
+
 add_executable(test_angle  
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_angle.cpp
 )

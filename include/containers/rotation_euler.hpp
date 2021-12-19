@@ -72,17 +72,17 @@ struct RotationEuler {
    * @brief Get the roll in degrees.
    * @return constexpr Angle The rotation.
    */
-  Angle roll() { return angles._x; };
+  Angle roll() const { return angles._x; };
   /**
    * @brief Get the pitch in degrees.
    * @return constexpr Angle The rotation.
    */
-  Angle pitch() { return angles._y; };
+  Angle pitch() const { return angles._y; };
   /**
    * @brief Get the yaw in degrees.
    * @return constexpr Angle The rotation.
    */
-  Angle yaw() { return angles._z; };
+  Angle yaw() const { return angles._z; };
   /**
    * @brief Get rotation (x, y, z) as a buffer of 12 bytes.
    * @return byte buffer.
