@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <cmath>
 
 struct TriaxalReading {
   TriaxalReading(const float x, const float y, const float z) : _x(x), _y(y), _z(z) {}
@@ -25,6 +26,14 @@ struct TriaxalReading {
   };
 
  public:
+  /**
+   * @brief Calculate the normalised reading, such that the magnitude is 1
+   * @return TriaxalReading Normalised reading.
+   */
+  TriaxalReading normalise() const {
+    auto dem = std::sqrt(_x * _x + _y * _y + _z * _z);
+    return TriaxalReading(_x / dem, _y / dem, _z / dem);
+  }
   constexpr float x() const { return _x; };
   constexpr float y() const { return _y; };
   constexpr float z() const { return _z; };
