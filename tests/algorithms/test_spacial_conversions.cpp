@@ -6,7 +6,7 @@
 using namespace SpacialConversions;
 
 bool approxEqual(float value, float expected) {
-  return (expected > (value - 0.01f)) && (expected < (value + 0.01f));
+  return (expected > (value - 0.02f)) && (expected < (value + 0.02f));
 }
 
 TEST_CASE("Euler to quarternion") {
@@ -161,4 +161,96 @@ TEST_CASE("Euler to quarternion") {
   CHECK(approxEqual(qx, quart.x()));
   CHECK(approxEqual(qy, quart.y()));
   CHECK(approxEqual(qz, quart.z()));
+}
+
+TEST_CASE("Quarternion to euler") {
+  float qw = 1;
+  float qx = 0;
+  float qy = 0;
+  float qz = 0;
+  auto euler = RotationEuler();
+  float x = 0;
+  float y = 0;
+  float z = 0;
+
+  SUBCASE("No rotation") {
+    auto quart = RotationQuarternion(qw, qx, qy, qz);
+    euler = quarternion2Euler(quart);
+  }
+
+  SUBCASE("X at 90") {
+    qw = std::sqrt(2) / 2.f;
+    qx = std::sqrt(2) / 2.f;
+    qy = 0;
+    qz = 0;
+    x = 90;
+    auto quart = RotationQuarternion(qw, qx, qy, qz);
+    euler = quarternion2Euler(quart);
+  }
+
+  SUBCASE("Y at 90") {
+    qw = std::sqrt(2) / 2.f;
+    qx = 0;
+    qy = std::sqrt(2) / 2.f;
+    qz = 0;
+    y = 90;
+    auto quart = RotationQuarternion(qw, qx, qy, qz);
+    euler = quarternion2Euler(quart);
+  }
+
+  SUBCASE("Z at 90") {
+    qw = std::sqrt(2) / 2.f;
+    qx = 0;
+    qy = 0;
+    qz = std::sqrt(2) / 2.f;
+    z = 90;
+    auto quart = RotationQuarternion(qw, qx, qy, qz);
+    euler = quarternion2Euler(quart);
+  }
+
+  SUBCASE("X at -90") {
+    x = -90;
+    qw = std::sqrt(2) / 2.f;
+    qx = -std::sqrt(2) / 2.f;
+    qy = 0;
+    qz = 0;
+    auto quart = RotationQuarternion(qw, qx, qy, qz);
+    euler = quarternion2Euler(quart);
+  }
+
+  SUBCASE("Y at -90") {
+    y = -90;
+    qw = std::sqrt(2) / 2.f;
+    qx = 0;
+    qy = -std::sqrt(2) / 2.f;
+    qz = 0;
+    auto quart = RotationQuarternion(qw, qx, qy, qz);
+    euler = quarternion2Euler(quart);
+  }
+
+  SUBCASE("Z at -90") {
+    z = -90;
+    qw = std::sqrt(2) / 2.f;
+    qx = 0;
+    qy = 0;
+    qz = -std::sqrt(2) / 2.f;
+    auto quart = RotationQuarternion(qw, qx, qy, qz);
+    euler = quarternion2Euler(quart);
+  }
+
+  SUBCASE("X, Y and Z at 45") {
+    qw = 0.8446;
+    qx = 0.1913;
+    qy = 0.4619;
+    qz = 0.1913;
+    x = 45;
+    y = 45;
+    z = 45;
+    auto quart = RotationQuarternion(qw, qx, qy, qz);
+    euler = quarternion2Euler(quart);
+  }
+
+  CHECK(approxEqual(x, euler.x().degrees()));
+  CHECK(approxEqual(y, euler.y().degrees()));
+  CHECK(approxEqual(z, euler.z().degrees()));
 }

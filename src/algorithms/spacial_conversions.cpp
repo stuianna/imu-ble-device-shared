@@ -17,3 +17,23 @@ RotationQuarternion SpacialConversions::euler2Quarternion(const RotationEuler& e
   auto w = (cosRoll * cosPitch * cosYaw + sinRoll * sinPitch * sinYaw);
   return RotationQuarternion(w, x, y, z);
 }
+
+RotationEuler SpacialConversions::quarternion2Euler(const RotationQuarternion& quart) {
+  auto x2 = quart.x() * quart.x();
+  auto y2 = quart.y() * quart.y();
+  auto z2 = quart.z() * quart.z();
+
+  auto t0 = 2.0f * (quart.w() * quart.x() + quart.y() * quart.z());
+  auto t1 = 1.0f - 2.0f * (x2 + y2);
+  auto roll = std::atan2(t0, t1);
+
+  auto t2 = +2.0f * (quart.w() * quart.y() - quart.z() * quart.x());
+  t2 = t2 > 1.0f ? 1.0 : t2;
+  t2 = t2 < -1.0f ? -1.0f : t2;
+  auto pitch = std::asin(t2);
+
+  auto t3 = 2.0f * (quart.w() * quart.z() + quart.x() * quart.y());
+  auto t4 = 1.0f - 2.0f * (y2 + z2);
+  auto yaw = std::atan2(t3, t4);
+  return RotationEuler(Angle::radians(roll), Angle::radians(pitch), Angle::radians(yaw));
+}
