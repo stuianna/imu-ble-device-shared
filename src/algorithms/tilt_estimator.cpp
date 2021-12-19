@@ -1,8 +1,13 @@
 #include <algorithms/orientation_estimator/tilt_estimator.hpp>
+#include <algorithms/spacial_conversions.hpp>
 #include <cmath>
 
-RotationEuler TiltEstimator::orientation() {
+RotationEuler TiltEstimator::orientationEuler() {
   return _currentOrientation;
+}
+
+RotationQuarternion TiltEstimator::orientationQuarternion() {
+  return SpacialConversions::euler2Quarternion(_currentOrientation);
 }
 
 void TiltEstimator::update(const TriaxalReading& acc, const TriaxalReading& gyr, const TriaxalReading& mag) {

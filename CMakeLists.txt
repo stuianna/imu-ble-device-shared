@@ -37,6 +37,7 @@ add_test(angle test_angle)
 add_executable(test_tilt_estimator  
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/algorithms/test_tilt_estimator.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/tilt_estimator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/spacial_conversions.cpp
 )
 add_test(tilt_estimator test_tilt_estimator)
 

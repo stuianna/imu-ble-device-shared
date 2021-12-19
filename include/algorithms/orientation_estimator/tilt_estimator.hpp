@@ -8,7 +8,8 @@
 
 class TiltEstimator : public OrientationEstimator {
  public:
-  RotationEuler orientation() override;
+  RotationEuler orientationEuler() override;
+  RotationQuarternion orientationQuarternion() override;
   void update(const TriaxalReading& acc, const TriaxalReading& gyr, const TriaxalReading& mag) override;
 
  private:

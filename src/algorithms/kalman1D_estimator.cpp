@@ -1,4 +1,5 @@
 #include <algorithms/orientation_estimator/kalman1D_estimator.hpp>
+#include <algorithms/spacial_conversions.hpp>
 #include <array>
 #include <cmath>
 using namespace std;
@@ -33,8 +34,12 @@ KalmanEstimator1D::KalmanEstimator1D() :
 }
 // clang-format on
 
-RotationEuler KalmanEstimator1D::orientation() {
+RotationEuler KalmanEstimator1D::orientationEuler() {
   return _currentOrientation;
+}
+
+RotationQuarternion KalmanEstimator1D::orientationQuarternion() {
+  return SpacialConversions::euler2Quarternion(_currentOrientation);
 }
 
 void KalmanEstimator1D::update(const TriaxalReading& acc, const TriaxalReading& gyr, const TriaxalReading& mag) {
