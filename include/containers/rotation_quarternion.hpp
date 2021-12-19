@@ -29,23 +29,6 @@ struct RotationQuarternion {
   constexpr RotationQuarternion(const RotationQuarternion& rhs) : quarts(rhs.quarts) {}
   RotationQuarternion() : quarts{1, 0, 0, 0} {}
 
-  explicit RotationQuarternion(const RotationEuler& euler) {
-    auto yaw = euler.yaw().radians() / 2.f;
-    auto pitch = euler.pitch().radians() / 2.f;
-    auto roll = euler.roll().radians() / 2.f;
-    auto sinRoll = std::sin(roll);
-    auto cosRoll = std::cos(roll);
-    auto sinPitch = std::sin(pitch);
-    auto cosPitch = std::cos(pitch);
-    auto sinYaw = std::sin(yaw);
-    auto cosYaw = std::cos(yaw);
-
-    x(sinRoll * cosPitch * cosYaw - cosRoll * sinPitch * sinYaw);
-    y(cosRoll * sinPitch * cosYaw + sinRoll * cosPitch * sinYaw);
-    z(cosRoll * cosPitch * sinYaw - sinRoll * sinPitch * cosYaw);
-    w(cosRoll * cosPitch * cosYaw + sinRoll * sinPitch * sinYaw);
-  }
-
  private:
   union {
     struct {

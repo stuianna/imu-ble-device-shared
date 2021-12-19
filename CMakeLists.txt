@@ -15,7 +15,6 @@ add_test(uuid test_uuid)
 
 add_executable(test_rotation_euler  
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_rotation_euler.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/containers/rotation_euler.cpp
 )
 add_test(rotation_euler test_rotation_euler)
 
@@ -23,6 +22,12 @@ add_executable(test_rotation_quarternion
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_rotation_quarternion.cpp
 )
 add_test(rotation_quarternion test_rotation_quarternion)
+
+add_executable(test_spacial_conversions  
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/algorithms/test_spacial_conversions.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/spacial_conversions.cpp
+)
+add_test(rotation_spacial_conversions test_spacial_conversions)
 
 add_executable(test_angle  
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_angle.cpp
