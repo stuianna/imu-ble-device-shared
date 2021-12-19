@@ -19,7 +19,11 @@
 /**
  * @brief UUID for the euler orientation service.
  */
-#define UUID_SERVICE_ORIENTATION "12345678-1234-5678-1234-56789abcdef0"
+#define UUID_SERVICE_EULER "12345678-1234-5678-1234-56789abcd2f0"
+/**
+ * @brief UUID for the quarternion orientation service.
+ */
+#define UUID_SERVICE_QUARTERNION "12345678-1234-5678-1234-56789abcd3f0"
 /**
  * @brief UUID accelerometer, gyroscope and magnometer main notification characteristics.
  */
