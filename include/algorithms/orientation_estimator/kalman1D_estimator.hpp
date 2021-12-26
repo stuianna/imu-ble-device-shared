@@ -9,13 +9,13 @@
 
 class KalmanEstimator1D : public OrientationEstimator {
  public:
-  RotationEuler orientationEuler() override;
-  RotationQuarternion orientationQuarternion() override;
+  Rotation::Euler orientationEuler() override;
+  Rotation::Quarternion orientationQuarternion() override;
   void update(const TriaxialReading& acc, const TriaxialReading& gyr, const TriaxialReading& mag) override;
   KalmanEstimator1D();
 
  private:
-  RotationEuler _currentOrientation;
+  Rotation::Euler _currentOrientation;
   KalmanFilter1D _pitch;
   KalmanFilter1D _roll;
 };

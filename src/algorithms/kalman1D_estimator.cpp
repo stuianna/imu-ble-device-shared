@@ -34,11 +34,11 @@ KalmanEstimator1D::KalmanEstimator1D() :
 }
 // clang-format on
 
-RotationEuler KalmanEstimator1D::orientationEuler() {
+Rotation::Euler KalmanEstimator1D::orientationEuler() {
   return _currentOrientation;
 }
 
-RotationQuarternion KalmanEstimator1D::orientationQuarternion() {
+Rotation::Quarternion KalmanEstimator1D::orientationQuarternion() {
   return SpacialConversions::euler2Quarternion(_currentOrientation);
 }
 
