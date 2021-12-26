@@ -1,11 +1,11 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest.h>
 
-#include <containers/rotation_euler.hpp>
+#include <containers/rotation/euler.hpp>
 
 TEST_CASE("Creating from angles") {
   SUBCASE("Angles within bounds") {
-    auto reading = RotationEuler(Angle::degrees(1), Angle::degrees(2), Angle::degrees(3));
+    auto reading = Rotation::Euler(Angle::degrees(1), Angle::degrees(2), Angle::degrees(3));
     SUBCASE("Getting x,y,z angles.") {
       CHECK_EQ(1.f, reading.x().degrees());
       CHECK_EQ(2.f, reading.y().degrees());
@@ -30,7 +30,7 @@ TEST_CASE("Creating from angles") {
 
 TEST_CASE("Construtors") {
   SUBCASE("Move") {
-    auto reading = RotationEuler(Angle::degrees(1), Angle::degrees(2), Angle::degrees(3));
+    auto reading = Rotation::Euler(Angle::degrees(1), Angle::degrees(2), Angle::degrees(3));
     auto reading2 = reading;
     CHECK_EQ(1.f, reading2.x().degrees());
     CHECK_EQ(2.f, reading2.y().degrees());

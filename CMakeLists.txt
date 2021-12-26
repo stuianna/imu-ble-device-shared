@@ -14,12 +14,12 @@ add_executable(test_uuid  ${CMAKE_CURRENT_SOURCE_DIR}/tests/constants/test_uuid.
 add_test(uuid test_uuid)
 
 add_executable(test_rotation_euler  
-    ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_rotation_euler.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/rotation/test_euler.cpp
 )
 add_test(rotation_euler test_rotation_euler)
 
 add_executable(test_rotation_quarternion  
-    ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_rotation_quarternion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/rotation/test_quarternion.cpp
 )
 add_test(rotation_quarternion test_rotation_quarternion)
 

@@ -2,11 +2,13 @@
 #include <algorithms/spacial_conversions.hpp>
 #include <cmath>
 
-RotationEuler TiltEstimator::orientationEuler() {
+using namespace Rotation;
+
+Euler TiltEstimator::orientationEuler() {
   return _currentOrientation;
 }
 
-RotationQuarternion TiltEstimator::orientationQuarternion() {
+Quarternion TiltEstimator::orientationQuarternion() {
   return SpacialConversions::euler2Quarternion(_currentOrientation);
 }
 

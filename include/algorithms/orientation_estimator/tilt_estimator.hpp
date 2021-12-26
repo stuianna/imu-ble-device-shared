@@ -8,12 +8,12 @@
 
 class TiltEstimator : public OrientationEstimator {
  public:
-  RotationEuler orientationEuler() override;
-  RotationQuarternion orientationQuarternion() override;
+  Rotation::Euler orientationEuler() override;
+  Rotation::Quarternion orientationQuarternion() override;
   void update(const TriaxialReading& acc, const TriaxialReading& gyr, const TriaxialReading& mag) override;
 
  private:
-  RotationEuler _currentOrientation;
+  Rotation::Euler _currentOrientation;
 };
 
 #endif  // __ALGORITHMS_TILT_ESTIMAORN_HPP
