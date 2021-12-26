@@ -10,7 +10,7 @@ RotationQuarternion TiltEstimator::orientationQuarternion() {
   return SpacialConversions::euler2Quarternion(_currentOrientation);
 }
 
-void TiltEstimator::update(const TriaxalReading& acc, const TriaxalReading& gyr, const TriaxalReading& mag) {
+void TiltEstimator::update(const TriaxialReading& acc, const TriaxialReading& gyr, const TriaxialReading& mag) {
   (void)gyr;
   (void)mag;
   auto x = Angle::radians(-atan2(acc.y(), acc.z()));

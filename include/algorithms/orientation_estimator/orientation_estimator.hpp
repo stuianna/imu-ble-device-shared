@@ -3,7 +3,7 @@
 
 #include <containers/rotation_euler.hpp>
 #include <containers/rotation_quarternion.hpp>
-#include <containers/triaxal_reading.hpp>
+#include <containers/triaxial_reading.hpp>
 #include <cstddef>
 #include <cstdint>
 
@@ -11,7 +11,7 @@ class OrientationEstimator {
  public:
   virtual RotationEuler orientationEuler() = 0;
   virtual RotationQuarternion orientationQuarternion() = 0;
-  virtual void update(const TriaxalReading& acc, const TriaxalReading& gyr, const TriaxalReading& mag) = 0;
+  virtual void update(const TriaxialReading& acc, const TriaxialReading& gyr, const TriaxialReading& mag) = 0;
   virtual ~OrientationEstimator() = default;
 
  protected:

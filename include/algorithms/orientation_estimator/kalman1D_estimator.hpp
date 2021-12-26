@@ -11,7 +11,7 @@ class KalmanEstimator1D : public OrientationEstimator {
  public:
   RotationEuler orientationEuler() override;
   RotationQuarternion orientationQuarternion() override;
-  void update(const TriaxalReading& acc, const TriaxalReading& gyr, const TriaxalReading& mag) override;
+  void update(const TriaxialReading& acc, const TriaxialReading& gyr, const TriaxialReading& mag) override;
   KalmanEstimator1D();
 
  private:

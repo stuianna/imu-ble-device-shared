@@ -7,8 +7,8 @@ enable_testing()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-add_executable(test_triaxal_reading  ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_triaxal_reading.cpp)
-add_test(triaxal_reading test_triaxal_reading)
+add_executable(test_triaxial_reading  ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_triaxial_reading.cpp)
+add_test(triaxial_reading test_triaxial_reading)
 
 add_executable(test_uuid  ${CMAKE_CURRENT_SOURCE_DIR}/tests/constants/test_uuid.cpp)
 add_test(uuid test_uuid)

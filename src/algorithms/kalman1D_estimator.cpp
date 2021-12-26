@@ -42,7 +42,7 @@ RotationQuarternion KalmanEstimator1D::orientationQuarternion() {
   return SpacialConversions::euler2Quarternion(_currentOrientation);
 }
 
-void KalmanEstimator1D::update(const TriaxalReading& acc, const TriaxalReading& gyr, const TriaxalReading& mag) {
+void KalmanEstimator1D::update(const TriaxialReading& acc, const TriaxialReading& gyr, const TriaxialReading& mag) {
   auto accelAngle_x = Angle::radians(atan2(acc.y(), acc.z()));
   auto gyrRate_x = Angle::radians(gyr.x());
 
