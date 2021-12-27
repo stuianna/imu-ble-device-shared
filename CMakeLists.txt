@@ -37,12 +37,12 @@ add_executable(test_angle
 )
 add_test(angle test_angle)
 
-add_executable(test_tilt_estimator  
-    ${CMAKE_CURRENT_SOURCE_DIR}/tests/algorithms/test_tilt_estimator.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/tilt_estimator.cpp
+add_executable(test_ahrs_angular  
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/algorithms/ahrs/test_angular.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/ahrs/angular.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/spacial_conversions.cpp
 )
-add_test(tilt_estimator test_tilt_estimator)
+add_test(ahrs_angular test_ahrs_angular)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
