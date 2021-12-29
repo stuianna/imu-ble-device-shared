@@ -37,6 +37,11 @@ add_executable(test_angle
 )
 add_test(angle test_angle)
 
+add_executable(test_system_state  
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/containers/test_system_state.cpp
+)
+add_test(system_state test_system_state)
+
 add_executable(test_ahrs_angular  
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/algorithms/ahrs/test_angular.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/algorithms/ahrs/angular.cpp

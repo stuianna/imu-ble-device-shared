@@ -25,6 +25,13 @@ namespace Rotation {
       }
       return *this;
     }
+    Quarternion& operator=(const Quarternion& rhs) {
+      quarts._w = rhs.quarts._w;
+      quarts._x = rhs.quarts._x;
+      quarts._y = rhs.quarts._y;
+      quarts._z = rhs.quarts._z;
+      return *this;
+    }
     constexpr Quarternion(const Quarternion& rhs) : quarts(rhs.quarts) {}
     Quarternion() : quarts{1, 0, 0, 0} {}
     float& operator[](int index) { return reinterpret_cast<float*>(_bytes)[index]; }

@@ -25,6 +25,12 @@ namespace Rotation {
       }
       return *this;
     }
+    Euler& operator=(const Euler& rhs) {
+      angles._x = rhs.angles._x;
+      angles._y = rhs.angles._y;
+      angles._z = rhs.angles._z;
+      return *this;
+    }
     constexpr Euler(const Euler& rhs) : angles(rhs.angles) {}
     Euler() : angles{Angle::degrees(0), Angle::degrees(0), Angle::degrees(0)} {}
 
