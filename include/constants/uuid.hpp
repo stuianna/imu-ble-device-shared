@@ -5,27 +5,11 @@
 #include <cstdint>
 
 /**
- * @brief UUID for the accelerometer service.
+ * @brief UUID system state notificaiotn service.
  */
-#define UUID_SERVICE_ACC "12345678-1234-5678-1234-56789abcdefA"
+#define UUID_SERVICE_SS "12345678-1234-5678-1234-56789abcdefA"
 /**
- * @brief UUID for the gyroscope service.
- */
-#define UUID_SERVICE_GYR "12345678-1234-5678-1234-56789abcdee0"
-/**
- * @brief UUID for the magnometer service.
- */
-#define UUID_SERVICE_MAG "12345678-1234-5678-1234-56789abcded0"
-/**
- * @brief UUID for the euler orientation service.
- */
-#define UUID_SERVICE_EULER "12345678-1234-5678-1234-56789abcd2f0"
-/**
- * @brief UUID for the quarternion orientation service.
- */
-#define UUID_SERVICE_QUARTERNION "12345678-1234-5678-1234-56789abcd3f0"
-/**
- * @brief UUID accelerometer, gyroscope and magnometer main notification characteristics.
+ * @brief UUID for system state characteristic.
  */
 #define UUID_CHARACTERISTIC "12345678-1234-5678-1234-56789abcdef1"
 
